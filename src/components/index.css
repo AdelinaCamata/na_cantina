@@ -1,0 +1,13 @@
+@import url(../utils/pallete.css);
+
+main{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--violet);
+}
+main figure{
+    width: 160px;
+}
+main figure img{
+    width: 100%;
+}

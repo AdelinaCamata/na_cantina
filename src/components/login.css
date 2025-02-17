@@ -1,0 +1,249 @@
+.logo {
+    /* background-color: red; */
+    height: 24vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 120px;
+}
+
+.desc h2 {
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0.01em;
+    margin-left: 6%;
+    color: #262F3D;
+}
+
+.desc p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    color: #A4A9B2;
+    margin-top: 8px;
+    margin-left: 6%;
+}
+
+.form {
+    /* background-color: green; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form .input {
+    position: relative;
+    width: 327px;
+    /* margin-right: 24px; */
+    /* background-color: aqua; */
+}
+
+.form .input:nth-child(1) {
+    margin-top: 45px;
+}
+
+.form .input:nth-child(2) {
+    margin-top: 20px;
+}
+
+.form .input:nth-child(3) {
+    margin-top: 20px;
+}
+
+
+.form .input span {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
+    color: #344054;
+}
+
+.form .input div {
+    width: 327px;
+    height: 44px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #A4A9B28C;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form .input div input {
+    height: 32px;
+    width: 270px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+}
+
+.form .input div input::placeholder {
+    color: #9198A3;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+}
+
+.lembrar {
+    position: relative;
+    width: 327px;
+    margin-top: 20px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lembrar div {
+    /* background-color: aqua; */
+    width: 133px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lembrar div input {
+    width: 16px;
+    height: 16px;
+    gap: 0px;
+    border-radius: 8px;
+    border: 1px solid #A4A9B2;
+}
+
+.lembrar div span {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.8px;
+    color: #262F3D;
+}
+
+.lembrar a {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15.6px;
+    color: #5429FF;
+    text-decoration: none;
+}
+
+.btns-login {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 32px;
+    /* background-color: yellow; */
+}
+
+.btns-login button {
+    width: 327px;
+    height: 44px;
+    padding: 10px 40px;
+    border-radius: 24px;
+    background-color: #443ADC;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.btns-login a {
+    width: 327px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    text-decoration: none;
+    padding: 10px 40px;
+    border-radius: 8px;
+    border: 1px solid #A4A9B28C
+}
+
+.btns-login a span {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.2px;
+    color: #262F3D;
+    margin-left: 8px;
+}
+
+.regista {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    /* background-color: red; */
+}
+
+.regista span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #344054;
+}
+
+.regista a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: #443ADC;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+#errorEmail,
+#errorPass {
+    font-size: 12px;
+    color: red;
+    font-style: italic;
+}
+
+.clean {
+    opacity: 0;
+    transition: all .2s;
+}
+
+.clean.active {
+    opacity: 1;
+    transition: all .2s;
+}
+
+.clean2 {
+    opacity: 0;
+    transition: all .2s;
+}
+
+.clean2.active {
+    opacity: 1;
+    transition: all .2s;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Na Cantina | Login</title>
+    <link rel="stylesheet" href="../components/login.css">
+    <link rel="stylesheet" href="../utils/screen.css">
+    <link rel="stylesheet" href="../utils/flexbox.min.css">
+</head>
+<body>
+    <div class="logo">
+        <img src="../../assets/logo1.svg" alt="logo">
+    </div>
+    <div class="desc">
+        <h2>Na Cantina</h2>
+        <p>Preencha os seus dados para aceder à sua conta.</p>
+    </div>
+    <form action="./home.html" class="form">
+        <div for="" class="input">
+            <span>Email</span>
+            <div>
+                <input type="email" name="" id="email" placeholder="debra.holt@example.com" onkeyup="emailVerification()">
+                <img src="../../assets/Icon (1).svg" alt="clean" class="clean" onclick="Clean()">
+            </div>
+            <p id="errorEmail"></p>
+        </div>
+
+        <div for="" class="input">
+            <span>Palavra-passe</span>
+            <div>
+                <input type="password" name="" id="password" placeholder="••••••••" onkeyup="PassWordVerification()">
+                <img src="../../assets/Icon.svg" alt="view" class="ViewPassWord">
+            </div>
+            <p id="errorPass"></p>
+        </div>
+
+        <div class="lembrar">
+            <div>
+                <input type="checkbox" name="" id="lembrar">
+                <span>Lembrar de mim</span>
+            </div>
+
+            <a href="#">Esqueceu a palavra-passe?</a>
+        </div>
+        
+        <div class="btns-login">
+            <button>Iniciar sessão</button>
+            <a href="#">
+                <img src="../../assets/Google.png" alt="google">
+                <span>Entrar com o Google</span>
+            </a>
+        </div>
+
+        <div class="regista">
+            <span>Não tem uma conta?</span>
+            <a href="./cadastro.html">Registe-se</a>
+        </div>
+    </form>
+<script src="../scripts/login.js"></script>
+</body>
+</html>
