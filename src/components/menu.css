@@ -32,7 +32,7 @@
 }
 
 .menu .active{
-    background-color: #2382aa38;   
+    /*background-color: #2382aa38;*/
 }
 
 .menu a img{
@@ -64,6 +64,7 @@
 }
 
 .cabecalho {
+   /* background-color: #FF324B;*/
     position: relative;
     width: 100%;
     height: 83px;
@@ -73,21 +74,24 @@
 } 
 
 .cabecalho .voltar{
-    margin: 50px;
-    background-color: aqua;
+    margin: 30px;
+   /* background-color: aqua;*/
 }
 
 .logo {
-    /* background-color: red; */
-    height: 15vh;
+    /* background-color: #444;*/
+    height: 10vh;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 40px;
+
 }
 
 .logo img {
-    width: 120px;
+    width: 100px;
+    height: 90px;
 }
 
 .menu-secundario{
@@ -108,7 +112,7 @@
 }
 
 .menu-secundario a:hover {
-    color: #5605c9;
+    color: #443ADC;
     border-bottom: 1px solid#5605c9;
 }
 
@@ -130,14 +134,16 @@
 }
 
 .menu-secundario-2 a:hover {
-    color: #5605c9;
+    color: #443ADC;
     border-bottom: 1px solid#5605c9;
 }
 
 .paragrafo{
    margin-top: 10px;
    margin-left: 16px;
-   font-size: 16px;
+   font-size: 18px;
+   font-weight: 600;
+   color: #434344;
     
 }
 
@@ -153,6 +159,7 @@
     flex-wrap: wrap;
     /* background-color: aqua; */
     padding-top: 16px;
+    overflow-y: scroll;
 }
 
 .caixa-deals .card{

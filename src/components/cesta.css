@@ -62,21 +62,6 @@
     justify-content: center;
     align-items: center;
 }
-
-.header {
-    position: fixed;
-    width: 100%;
-    height: 50px;
-    top: 0;
-    padding-block: 24px;
-    padding-inline: 16px;
-    justify-content: space-around;
-    align-items: center;
-    gap: 8px;
-    background-color: #fff;
-    z-index: 1000;
-}
-
 .btn-voltar {
     width: 42px;
     height: 42px;
@@ -92,30 +77,66 @@
     height: 21px;
 }
 
-.cesta{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 140%;
-    width: 100%;
-}
+.cabecalho {
+    /* background-color: #FF324B;*/
+     position: relative;
+     width: 100%;
+     height: 83px;
+     display: flex;
+     align-items: center;
+ 
+ } 
+ 
+ .cabecalho .voltar{
+     margin: 30px;
+    /* background-color: aqua;*/
+ }
+ 
+ .cesta {
+     /* background-color: #444;*/
+     height: 10vh;
+     position: relative;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: 40px;
+ 
+ }
+ 
+ .cesta{
+     width: 100px;
+     height: 90px;
+ }
 
-.header .cesta h2{
+ .cabecalho .cesta a{
     font-size: 20px;
     text-decoration: none;
-    color:#443ADC;
     margin: 10px;
+    font-weight: 700;
+    border-bottom: 6px solid #F1F1F5;
 }
 
-.header .cesta  .reserva{
-    color:#979899 ;
+.cabecalho .cesta  .reserva{
+    color:#443ADC ;
+    border-bottom: 6px solid #443ADC;
+}
+
+.cesta a {
+    text-decoration: none;
+    color:#a8a3af;
+}
+
+.cesta .reserva2:hover {
+    color: #443ADC;
+    border-bottom: 6px solid#443ADC;
 }
 
 .resultado {
+   /*background-color: #ee4659;*/
     position: relative;
     width: 100%;
     height: 80vh;
-    margin-top: 107px;
+    margin-top: 17px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
