@@ -1,3 +1,21 @@
+<?php
+session_start();
+include_once 'conexão.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id_produto = intval($_POST['id_produto']);
+    $hora = $_POST['hora'];
+    $endereco = $_POST['endereco'];
+    $id_usuario = intval($_SESSION['user']['id_usuario']);
+
+    $query = "INSERT INTO reserva (id_usuario, id_produto, hora_reserva, endereco) VALUES (?, ?, ?, ?)";
+    $stmt = $mysqli->prepare($query);
+    $stmt->bind_param("iiss", $id_usuario, $id_produto, $hora, $endereco);
+    $stmt->execute();
+
+    echo "Produto reservado com sucesso!";
+}
+?>
 <!DOCTYPE html>
 <html lang="pt_br">
 <head>
@@ -9,30 +27,30 @@
 </head>
 <body>
     <div class="menu">
-        <a href="home.html">
+        <a href="home.php">
             <img src="../../assets/casa.svg" alt="">
         </a>
-        <a href="./pesquisar.html">
+        <a href="./pesquisar.php">
             <img src="../../assets/Lupa da barra.png" alt="">
         </a>
-        <a class="cesto" href="./cesta.html">
+        <a class="cesto" href="./cesta.php">
             <img src="../../assets/cesto.svg" alt="">
             <span>4</span>
         </a>
-     <a href="./perfil.html">
+     <a href="./perfil1.php">
             <img src="../../assets/guy.png" alt="">
         </a>
     </div>
     <div class="cabecalho">
         <div class="voltar">
-            <a href="./cesta.html" class="arrow-back">
+            <a href="./cesta.php" class="arrow-back">
                 <img src="../../assets/arrow-left.png" alt="">
             </a>
         </div>
            
         <div class="cesta">
             <a href="#" class="reserva">Reservas</a> 
-            <a href="../pages/pedidos.html" class="reserva2">Pedidos</a>
+            <a href="../pages/pedidos.php" class="reserva2">Pedidos</a>
              </div>
     </div>
 
@@ -56,7 +74,7 @@
         </div>
     </div>
 
-    <form action="../pages/finalizar_reserva.html" class="form">
+    <form action="../pages/finalizar_reserva.php" class="form">
         <div class="input1">
             <div>
                 <input type="text" name="" placeholder="Nome do Endereço">
@@ -69,3 +87,15 @@
     </form>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

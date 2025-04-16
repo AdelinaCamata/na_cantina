@@ -13,7 +13,7 @@
         <div class="content-text flex-column align-center justify-end">
             <p  >Faça as suas compras em casa.</p>
             <p>A melhor aplicação para fazer compras à partir do conforto da sua casa.</p>
-            <a href="login.html">Comece agora!</a>
+            <a href="login.php">Comece agora!</a>
         </div>
         <img src="../../assets/fruits.jpg" alt="" width="100%" height="300px">
     </main>

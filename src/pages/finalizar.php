@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../components/finalizar.css">
+    <title>Na Cantina | Finalizar</title>
+</head>
+<body>
+    <div class="cabecalho">
+        <div class="voltar">
+            <a href="home.php" class="arrow-back">
+                <img src="../../assets/arrow-left.png" alt="">
+            </a>
+        </div>
+    </div>
+   <div class="consulta">
+    <div class="veri">
+        <img src="../../assets/finger.gif" alt="">
+       <div class="texto">
+         <p>A sua compra foi bem <br><span>sucedida!</span></p>
+         <a class="btn" href="home.php">Pagina Principal</a>
+        </div>
+    </div>
+   </div>
+</body>
+</html>

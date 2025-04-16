@@ -1,3 +1,33 @@
+<?php
+session_start();
+include_once 'conexão.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id_produto = intval($_POST['id_produto']);
+    $id_usuario = intval($_SESSION['user']['id_usuario']);
+
+    $query = "SELECT quantidade FROM cesta WHERE id_produto = ? AND id_usuario = ?";
+    $stmt = $mysqli->prepare($query);
+    $stmt->bind_param("ii", $id_produto, $id_usuario);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $nova_quantidade = $row['quantidade'] + 1;
+        $update_query = "UPDATE cesta SET quantidade = ? WHERE id_produto = ? AND id_usuario = ?";
+        $stmt_update = $mysqli->prepare($update_query);
+        $stmt_update->bind_param("iii", $nova_quantidade, $id_produto, $id_usuario);
+        $stmt_update->execute();
+    } else {
+        $insert_query = "INSERT INTO cesta (id_usuario, id_produto, quantidade) VALUES (?, ?, 1)";
+        $stmt_insert = $mysqli->prepare($insert_query);
+        $stmt_insert->bind_param("ii", $id_usuario, $id_produto);
+        $stmt_insert->execute();
+    }
+    echo "Produto adicionado à cesta!";
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,24 +38,24 @@
 </head>
 <body>
     <div class="menu">
-        <a class="active" href="home.html">
+        <a class="active" href="home.php">
             <img src="../../assets/casa.svg" alt="">
         </a>
-        <a href="./pesquisar.html">
+        <a href="./pesquisar.php">
             <img src="../../assets/Lupa da barra.png" alt="">
         </a>
-        <a class="cesto" href="./cesta.html">
+        <a class="cesto" href="./cesta.php">
             <img src="../../assets/cesto.svg" alt="">
             <span>4</span>
         </a>
-     <a href="./perfil.html">
+     <a href="./perfil1.php">
             <img src="../../assets/guy.png" alt="">
         </a>
     </div>
 
     <div class="cabecalho">
         <div class="voltar">
-            <a href="home.html" class="arrow-back">
+            <a href="home.php" class="arrow-back">
                 <img src="../../assets/arrow-left.png" alt="">
             </a>
         </div>
@@ -72,50 +102,54 @@
        <div class="caixa-deals">
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="../pages/cesta.html">+</a>
+            <form method="POST" action="cesta.php">
+                <input type="hidden" name="id_produto" value="2">
+                <input type="hidden" name="acao" value="adicionar">
+                <button class="mais" type="submit">+</button>
+            </form>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
        </div>
 
@@ -126,50 +160,50 @@
        <div class="caixa-deals">
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php"  class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
        </div>
 
@@ -180,18 +214,18 @@
        <div class="caixa-deals">
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
             <img class="img-card" src="../../assets/nutella.svg" alt="">
-            <a class="mais" href="./cesta.html">+</a>
+            <a class="mais" href="./cesta.php">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
@@ -199,7 +233,7 @@
             <a class="mais" href="">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
@@ -207,7 +241,7 @@
             <a class="mais" href="./cesta.html">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php"  class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
@@ -215,7 +249,7 @@
             <a class="mais" href="./cesta.html">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php"  class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
@@ -223,7 +257,7 @@
             <a class="mais" href="./cesta.html">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
        </div>
 
@@ -238,7 +272,7 @@
             <a class="mais" href="./cesta.html">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php"  class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
@@ -246,7 +280,7 @@
             <a class="mais" href="./cesta.html">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php"  class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
@@ -254,7 +288,7 @@
             <a class="mais" href="./cesta.html">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
@@ -262,7 +296,7 @@
             <a class="mais" href="./cesta.html">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php"  class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
@@ -270,7 +304,7 @@
             <a class="mais" href="./cesta.html">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php"  class="reserva">Reservar Produto</a>
         </div>
 
         <div class="card">
@@ -278,8 +312,12 @@
             <a class="mais" href="./cesta.html">+</a>
             <p class="left-text">910Kz</p>
             <p class="left-text">Nutella Alcantra</p>
-            <p class="left-text">Reservar Produto</p>
+            <a href="../pages/reservas.php" class="reserva">Reservar Produto</a>
         </div>
        </div>
 </body>
 </html>
+
+
+
+

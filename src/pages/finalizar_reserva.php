@@ -9,7 +9,7 @@
 <body>
     <div class="cabecalho">
         <div class="voltar">
-            <a href="home.html" class="arrow-back">
+            <a href="home.php" class="arrow-back">
                 <img src="../../assets/arrow-left.png" alt="">
             </a>
         </div>
@@ -18,8 +18,8 @@
     <div class="veri">
         <img src="../../assets/finger.gif" alt="">
        <div class="texto">
-         <p>A compra foi feita com sucesso.</p>
-         <a class="btn" href="home.html">Pagina Principal</a>
+         <p>A reserva foi feita com sucesso.</p>
+         <a class="btn" href="home.php">Pagina Principal</a>
         </div>
     </div>
    </div>

@@ -267,13 +267,13 @@ footer p span:nth-of-type(2){
 }
 footer .container-btn{
     background-color: #443ADC;
-    padding: 12px 22px;
     border-radius: 50px;
     display: flex;
     gap: 36px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 30%;
+    padding: 10px 10px 10px;
 }
 footer .container-btn a{
     color: #fff;

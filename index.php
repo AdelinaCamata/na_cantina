@@ -10,7 +10,7 @@
 </head>
 <body>
     <main class="flex-row align-center justify-center">
-        <a href="src/pages/intro.html">
+        <a href="src/pages/intro.php">
             <figure>
                 <img src="assets/logo.svg" alt="logo-page">
             </figure>
